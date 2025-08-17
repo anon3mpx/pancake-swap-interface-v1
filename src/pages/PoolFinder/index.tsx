@@ -1,4 +1,4 @@
-import { Currency, ETHER, JSBI, TokenAmount } from '@pancakeswap-libs/sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from '@anon.3mpx/tpls-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@pancakeswap-libs/uikit'
 import CardNav from 'components/CardNav'
@@ -133,9 +133,9 @@ export default function PoolFinder() {
                       <Text style={{ textAlign: 'center' }}>
                         {TranslateString(212, 'You don’t have liquidity in this pool yet.')}
                       </Text>
-                      <Text style={{ textAlign: 'center' }}>
-                        {TranslateString(168, "You can't add liquidity on V1")}
-                      </Text>
+                      <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                        {TranslateString(170, 'Add Liquidity')}
+                      </StyledInternalLink>
                     </AutoColumn>
                   </LightCard>
                 )

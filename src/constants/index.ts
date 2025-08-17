@@ -1,6 +1,6 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@pancakeswap-libs/sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from '@anon.3mpx/tpls-sdk'
 
-export const ROUTER_ADDRESS = '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F'
+export const ROUTER_ADDRESS = '0x3F57f8eE90269134182c2eC535947b8935daA78f'
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -34,15 +34,32 @@ export const ETH = new Token(
   'Binance-Peg Ethereum Token'
 )
 
+export const PM = new Token(
+  ChainId.TESTNET,
+  "0xdb3Ce32B6C407Ff9b5a159290b3741286585F6D1",
+  18,
+  "PM",
+  "Pan Money"
+)
+
+export const PH = new Token(
+  ChainId.TESTNET,
+  "0xDE0540B4359D74aF32e6BE86E4F8C9b14FBA2EE3",
+  18,
+  "PH",
+  "Pan Honey"
+)
+
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
-  [ChainId.BSCTESTNET]: [WETH[ChainId.BSCTESTNET]],
+  [ChainId.TESTNET]: [WETH[ChainId.TESTNET]],
 }
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, BTCB, USDT, UST, ETH],
+  [ChainId.TESTNET]: [...WETH_ONLY[ChainId.TESTNET], PM, PH],
 }
 
 /**
@@ -57,12 +74,14 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, USDT],
+  [ChainId.TESTNET]: [...WETH_ONLY[ChainId.TESTNET], PM, PH],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, BTCB, USDT],
+  [ChainId.TESTNET]: [...WETH_ONLY[ChainId.TESTNET], PM, PH],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -71,6 +90,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [BUSD, USDT],
     [DAI, USDT],
   ],
+  [ChainId.TESTNET]: [[PM, PH]],
 }
 
 export const NetworkContextName = 'NETWORK'

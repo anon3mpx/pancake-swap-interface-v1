@@ -2,10 +2,11 @@ import { createReducer } from '@reduxjs/toolkit'
 import { getVersionUpgrade, VersionUpgrade } from '@uniswap/token-lists'
 // eslint-disable-next-line import/no-unresolved
 import { TokenList } from '@uniswap/token-lists/dist/types'
-import { DEFAULT_LIST_OF_LISTS, DEFAULT_TOKEN_LIST_URL } from '../../constants/lists'
+import { DEFAULT_LIST_OF_LISTS, DEFAULT_TOKEN_LIST_URL, PULSECHAIN_TESTNET_LIST_URL } from '../../constants/lists'
 import { updateVersion } from '../global/actions'
 import { acceptListUpdate, addList, fetchTokenList, removeList, selectList } from './actions'
 import DEFAULT_LIST from '../../constants/token/pancakeswap.json'
+import PULSECHAIN_TESTNET_LIST from '../../constants/token/pulsechainTestnet.json'
 
 export interface ListsState {
   readonly byUrl: {
@@ -40,6 +41,12 @@ const initialState: ListsState = {
     [DEFAULT_TOKEN_LIST_URL]: {
       error: null,
       current: DEFAULT_LIST,
+      loadingRequestId: null,
+      pendingUpdate: null,
+    },
+    [PULSECHAIN_TESTNET_LIST_URL]: {
+      error: null,
+      current: PULSECHAIN_TESTNET_LIST as TokenList,
       loadingRequestId: null,
       pendingUpdate: null,
     },

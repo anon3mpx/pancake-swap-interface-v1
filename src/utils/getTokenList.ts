@@ -8,6 +8,7 @@ import uriToHttp from './uriToHttp'
 // bakeryswap defaultTokenJson
 import { DEFAULT_TOKEN_LIST_URL } from '../constants/lists'
 import defaultTokenJson from '../constants/token/pancakeswap.json'
+import pulsechainTestnetJson from '../constants/token/pulsechainTestnet.json'
 
 const tokenListValidator = new Ajv({ allErrors: true }).compile(schema)
 
@@ -22,6 +23,9 @@ export default async function getTokenList(
 ): Promise<TokenList> {
   if (listUrl === DEFAULT_TOKEN_LIST_URL) {
     return defaultTokenJson
+  }
+  if(listUrl === 'pulsechainTestnet'){
+    return pulsechainTestnetJson
   }
   const parsedENS = parseENSAddress(listUrl)
 

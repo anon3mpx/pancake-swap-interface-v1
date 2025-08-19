@@ -1,0 +1,34 @@
+{
+ "name": "PulseChain Testnet Tokens",
+ "logoURI": "your-logo-url.png",
+ "keywords": [
+  "pulsechain",
+  "testnet",
+  "pm",
+  "ph"
+ ],
+ "timestamp": "2025-08-17T00:00:00.000Z",
+ "tokens": [
+  {
+   "name": "Pan Money",
+   "symbol": "PM",
+   "address": "0xdb3Ce32B6C407Ff9b5a159290b3741286585F6D1",
+   "chainId": 943,
+   "decimals": 18,
+   "logoURI": ""
+  },
+  {
+   "name": "Pan Honey",
+   "symbol": "PH",
+   "address": "0xDE0540B4359D74aF32e6BE86E4F8C9b14FBA2EE3",
+   "chainId": 943,
+   "decimals": 18,
+   "logoURI": ""
+  }
+ ],
+ "version": {
+  "major": 1,
+  "minor": 0,
+  "patch": 0
+ }
+}

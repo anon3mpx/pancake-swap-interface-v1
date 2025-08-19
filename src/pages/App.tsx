@@ -3,6 +3,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import { LangType, useModal } from '@pancakeswap-libs/uikit'
+import  '../style/global.css'
 import VersionBar from 'components/VersionBar'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
@@ -58,15 +59,15 @@ export default function App() {
   const [hasSeenModal, setHasSeenModal] = useState(false)
   const [onPresentUseV2ExchangeModal] = useModal(<UseV2ExchangeModal />)
 
-  useEffect(() => {
-    const showModal = () => {
-      onPresentUseV2ExchangeModal()
-      setHasSeenModal(true)
-    }
-    if (!hasSeenModal) {
-      showModal()
-    }
-  }, [onPresentUseV2ExchangeModal, hasSeenModal])
+  // useEffect(() => {
+  //   const showModal = () => {
+  //     onPresentUseV2ExchangeModal()
+  //     setHasSeenModal(true)
+  //   }
+  //   if (!hasSeenModal) {
+  //     showModal()
+  //   }
+  // }, [onPresentUseV2ExchangeModal, hasSeenModal])
 
   const getStoredLang = (storedLangCode: string) => {
     return allLanguages.filter((language) => {
@@ -150,7 +151,7 @@ export default function App() {
                   </Web3ReactManager>
                 </BodyWrapper>
               </Menu>
-              <VersionBar />
+              {/* <VersionBar /> */}
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>

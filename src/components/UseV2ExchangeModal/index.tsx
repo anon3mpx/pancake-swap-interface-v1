@@ -53,7 +53,7 @@ const UseV2ExchangeModal = ({ onDismiss = defaultOnDismiss }: UseV2ExchangeModal
   }, [])
 
   return (
-    <Modal onDismiss={onDismiss} title="Use V2 Exchange" hideCloseButton>
+    <Modal className='display-none' onDismiss={onDismiss} title="Use V2 Exchange" hideCloseButton>
       <Box maxWidth="320px">
         <Text color="failure" mb="24px">
           PancakeSwap V1 is no longer supported.

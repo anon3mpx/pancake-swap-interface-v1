@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primary};
     margin-right: 8px;
   }
+  
+display-none {
+display: none;
+}
 `
 
 export default GlobalStyle
